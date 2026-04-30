@@ -51,7 +51,7 @@ int main (){
 		if (cnt==3) break;
 		
 	} 
-	qsort(roots,3,sizeof(double),cmp);
+	qsort(roots,3,sizeof(double),cmp);//用法 qsort(数组名，数量，sizeof(数据类型),cmp); 
 	printf("%.2f %.2f %.2f",roots[0],roots[1],roots[2]); 
 	return 0;
 } 

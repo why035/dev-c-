@@ -41,7 +41,7 @@ int up_bound(int*arr,int len ,int x){
 int main(){
 	int n;
 	scanf("%d",&n);
-	int*A=(int*)malloc(n*sizeof(int));//malloc是分配内存用的，malloc（数量*sizeof（数据类型））； 
+	int*A=(int*)malloc(n*sizeof(int));//malloc是分配内存用的，malloc((数据类型*)数量*sizeof(数据类型))； 
 	int*B=(int*)malloc(n*sizeof(int));
 	int*C=(int*)malloc(n*sizeof(int));
 	int*D=(int*)malloc(n*sizeof(int));
