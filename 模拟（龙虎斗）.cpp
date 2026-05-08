@@ -16,13 +16,15 @@
 
 输入
 输入的第一行包含一个正整数 n，代表兵营的数量。
-接下来的一行包含 n 个正整数，相邻两数之间以一个空格分隔，第 i 个正整数代表编号为 i 的兵营中起始时的工兵数量 Ci?。
+接下来的一行包含 n 个正整数，相邻两数之间以一个空格分隔，
+第 i 个正整数代表编号为 i 的兵营中起始时的工兵数量 Ci?。
 接下来的一行包含四个正整数，相邻两数间以一个空格分隔，分别代表 m,p1?,s1?,s2?。
 
 输出
 输出有一行，包含一个正整数，即 p2?，表示你选择的兵营编号。如果存在多个编号同时满足最优，取最小的编号。
 
 样例输入
+6
 2 3 2 3 2 3
 4 6 5 2
 
@@ -31,6 +33,7 @@
 */
 
 #include<stdio.h>
+#include<math.h>
 int main(){
 	int n;
 	scanf("%d",&n);
@@ -44,21 +47,40 @@ int main(){
 	int h=0;
 	int b=0;
 	b=m;
-	while(b--){
+	while(b>0){
 		l+=(m-b)*a[b-1];
+		b--;
 		
 	}
 	b=m;
-	while(n>m){
+	while(b<n){
 		b++;
-		h+=(n-b)*a[b-1];
+		h+=(b-m)*a[b-1];
 	}
 	if(p1>m){
 		h+=s1*(p1-m);
 	}else if(p1<m){
 		l+=s1*(m-p1);
 	}
+	int ans=0;
+	int min;
+	min=abs(l-h);
+	for (int p2=1;p2<=n;p2++){
+		int now_l=l;
+		int now_h=h;
+		if(p2<m){
+			now_l+=s2*(m-p2);
+		}else if(p2>m){
+			now_h+=s2*(p2-m);
+		}
+		int gap;
+		gap=abs(now_l-now_h);
+		if(gap<min){
+			min=gap;
+			ans=p2;
+		}
+	}
 	
-	
-	
+	printf("%d",ans);
+	return 0;
 }
