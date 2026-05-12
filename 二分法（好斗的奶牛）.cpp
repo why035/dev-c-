@@ -26,7 +26,6 @@ FJ 可以将 3 头奶牛放在位置 1、4 和 8 的牛栏中，此时最小距离为 3。
 int cmp(const void*a,const void*b){
 	int x=*(int*)a;
 	int y=*(int*)b;
-	return(x>y)-(x<y);
 	
 }
 int n,c;
